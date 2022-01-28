@@ -14,7 +14,8 @@ pipeline {
         stage('Build') {
             steps {
                 dir("https://github.com/ziberty/GoSecuri") {
-                sh 'mvn clean compile exec:java'
+                sh 'mvn -B -DskipTests clean package'
+                
                 }
             }
         }
