@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
+                dir("https://github.com/ziberty/GoSecuri") {
                 sh 'mvn clean compile exec:java'
                 }
             }
