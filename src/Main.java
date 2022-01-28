@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         List<Agent> agentsList = new ArrayList<>();
-        File dir = new File("ressources/agents/");
+        File dir = new File("ressources/agents_txt/");
         File[] directoryStream = dir.listFiles();
 
         if (directoryStream != null) {
@@ -22,7 +22,7 @@ public class Main {
                 String mission = lines.get(2);
                 String password = lines.get(3);
                 List<String> materiel = lines.subList(5, linesCount);
-                String carteIdentite = ("img/cartes_identite/" + prenom.charAt(0) + nom + ".jpg").toLowerCase();
+                String carteIdentite = ("img/agents_jpg/" + prenom.charAt(0) + nom + ".jpg").toLowerCase();
                 agentsList.add(new Agent(nom, prenom, mission, password, materiel, carteIdentite));
             }
         }
