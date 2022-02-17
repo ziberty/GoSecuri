@@ -15,8 +15,12 @@ pipeline {
             steps {
                 dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
                     sh 'mvn -B -DskipTests clean package'
-                    sh 'mvn -X exec:java'
                 }
+            }
+        }
+        stage('Send') {
+            steps {
+             sh 'scp /var/lib/jenkins/workspace/demopipelinetask/my-app/target/goSecuri-1.0.jar gosecuri@192.168.48.133:/var/www/'  
             }
         }
      }
