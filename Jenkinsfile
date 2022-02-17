@@ -16,11 +16,11 @@ pipeline {
                 dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
                     sh 'mvn -B -DskipTests clean package'
                     
-
-                }
-                dir("/var/lib/jenkins/workspace/demopipelinetask/my-app/target"){
                     sh 'mvn -X clean compile exec:java'
                 }
+           
+                    
+                
             }
         }
      }
