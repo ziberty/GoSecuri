@@ -14,12 +14,12 @@ pipeline {
         stage('Build') {
             steps {
                 dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
-                    sh 'mvn -B -DskipTests clean package' -X
+                    sh 'mvn -B -DskipTests clean package'
                     
 
                 }
                 dir("/var/lib/jenkins/workspace/demopipelinetask/my-app/target"){
-                    sh 'mvn clean compile exec:java' -X
+                    sh 'mvn -X clean compile exec:java'
                 }
             }
         }
