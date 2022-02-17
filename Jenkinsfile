@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Send') {
             steps {
-             sh 'scp -i ~/.ssh/id_rsa.pub var/lib/jenkins/workspace/demopipelinetask/my-app/target/goSecuri-1.0.jar gosecuri@192.168.48.133:/var/www/'  
+             sh 'scp -i ~/.ssh/id_rsa var/lib/jenkins/workspace/demopipelinetask/my-app/target/goSecuri-1.0.jar gosecuri@192.168.48.133:/var/www/'  
             }
         }
      }
