@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Send') {
             steps {
-             sh 'scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no -o PreferredAuthentications="Lego2014" /var/lib/jenkins/workspace/demopipelinetask/my-app/target/goSecuri-1.0.jar gosecuri@192.168.48.133:/var/www/'  
+             sh 'scp /var/lib/jenkins/workspace/demopipelinetask/my-app/target/goSecuri-1.0.jar gosecuri@192.168.48.133:/var/www/'  
             }
         }
      }
