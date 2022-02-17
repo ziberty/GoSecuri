@@ -18,6 +18,7 @@ pipeline {
                     
                     sh 'mvn -X clean compile exec:java'
                 }
+            }
         }
      }
     post {
