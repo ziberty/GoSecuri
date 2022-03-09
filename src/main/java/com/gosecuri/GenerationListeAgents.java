@@ -20,7 +20,7 @@ public class GenerationListeAgents {
     private void HTMLFicheAgentGeneration(List<Agent> agentsList) throws IOException {
         for (Agent agent : agentsList) {
             String url = "fiche" + agent.prenom + agent.nom + ".html";
-            File file = new File("web/" + url);
+            File file = new File("../web/" + url);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write("<!DOCTYPE html>\n" +
                     "<html lang=\"en\">\n" +
@@ -66,7 +66,7 @@ public class GenerationListeAgents {
     }
 
     private void HTMLIndexGeneration(List<Agent> agentsList) throws IOException {
-        File file = new File("web/index.html");
+        File file = new File("../web/index.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         bw.write("<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
