@@ -8,20 +8,21 @@
     <groupId>com.gosecuri</groupId>
     <artifactId>goSecuri</artifactId>
     <version>1.0</version>
-
+                             
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+                             
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
                 <configuration>
                     <archive>
-                        <index>true</index>
                         <manifest>
                             <mainClass>com.gosecuri.Main</mainClass>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>
                 </configuration>
@@ -29,10 +30,6 @@
         </plugins>
     </build>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <exec.mainClass>com.gosecuri.Main</exec.mainClass>
-    </properties>
+    
 
 </project>
