@@ -43,7 +43,7 @@ public class GenerationListeAgents {
                     "        <div class=\"title\" style=\"display: flex;width: 100%;justify-content: flex-start;\">\n" +
                     "            <a href=\"index.html\"><button><i class=\"fas fa-arrow-left\"></i> Liste des agents</button></a>\n" +
                     "        </div>\n" +
-                    "<h1>Fiche com.gosecuri.Agent</h1>\n" +
+                    "<h1>Fiche "+ agent.prenom + " " + agent.nom + "</h1>\n" +
                     "        <div class=\"fiche-agent\">\n" +
                     "            <div class=\"top\">\n");
             bw.write("<h3 class=\"name\">" + agent.prenom + " " + agent.nom + "</h3>");
