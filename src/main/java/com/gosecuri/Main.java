@@ -1,3 +1,5 @@
+package com.gosecuri;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         List<Agent> agentsList = new ArrayList<>();
-        File dir = new File("ressources/agents_txt/");
+        File dir = new File("../ressources/agents_txt/");
         File[] directoryStream = dir.listFiles();
 
         if (directoryStream != null) {

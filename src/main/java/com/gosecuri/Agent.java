@@ -1,3 +1,5 @@
+package com.gosecuri;
+
 import java.util.List;
 
 public class Agent {

@@ -1,3 +1,5 @@
+package com.gosecuri;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,7 +20,7 @@ public class GenerationListeAgents {
     private void HTMLFicheAgentGeneration(List<Agent> agentsList) throws IOException {
         for (Agent agent : agentsList) {
             String url = "fiche" + agent.prenom + agent.nom + ".html";
-            File file = new File("web/" + url);
+            File file = new File("../web/" + url);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write("<!DOCTYPE html>\n" +
                     "<html lang=\"en\">\n" +
@@ -41,7 +43,7 @@ public class GenerationListeAgents {
                     "        <div class=\"title\" style=\"display: flex;width: 100%;justify-content: flex-start;\">\n" +
                     "            <a href=\"index.html\"><button><i class=\"fas fa-arrow-left\"></i> Liste des agents</button></a>\n" +
                     "        </div>\n" +
-                    "<h1>Fiche Agent</h1>\n" +
+                    "<h1>Fiche "+ agent.prenom + " " + agent.nom + "</h1>\n" +
                     "        <div class=\"fiche-agent\">\n" +
                     "            <div class=\"top\">\n");
             bw.write("<h3 class=\"name\">" + agent.prenom + " " + agent.nom + "</h3>");
@@ -64,7 +66,7 @@ public class GenerationListeAgents {
     }
 
     private void HTMLIndexGeneration(List<Agent> agentsList) throws IOException {
-        File file = new File("web/index.html");
+        File file = new File("../web/index.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         bw.write("<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +

@@ -1,30 +1,31 @@
 pipeline {
     agent any
     tools {
-        maven "3.6.0"
-        jdk "JDK"
+        maven 'maven'
     }
     stages {
-        stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
+        stage('Recuperation des sources') {
+            steps {
+               git branch: 'main', url: 'https://github.com/ziberty/GoSecuri.git'
             }
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/demopipelinetask/my-app") {
                 sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Execute') {
+            steps {
+                dir("target") {
+                    sh 'java -jar goSecuri-1.0.jar'
                 }
             }
         }
-     }
-    post {
-       always {
-          junit(
-        allowEmptyResults: true,
-        testResults: '*/test-reports/.xml'
-      )
-      }
-   } 
+        stage('Send') {
+            steps {
+                sh 'scp -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@192.168.220.134:/var/www/gosecuri_web'
+            }
+        }
+        
+    }
 }
