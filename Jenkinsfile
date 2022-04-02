@@ -26,6 +26,5 @@ pipeline {
                 sh 'scp -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@192.168.220.134:/var/www/gosecuri_web'
             }
         }
-        
     }
 }
