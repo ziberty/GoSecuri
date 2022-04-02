@@ -7,7 +7,6 @@ body,html{
 
 .container{
     display: flex;
-    width: 50%;
     align-content: center;
     align-items: center;
     flex-direction: column;
