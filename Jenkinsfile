@@ -14,16 +14,16 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 sh 'mvn test'
+//             }
+//             post {
+//                 always {
+//                     junit 'target/surefire-reports/*.xml'
+//                 }
+//             }
+//         }
         stage('Execute') {
             steps {
                 dir("target") {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Send') {
             steps {
-                sh 'scp -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@192.168.220.134:/var/www/gosecuri_web'
+                sh 'scp -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@8.tcp.ngrok.io:/var/www/gosecuri_web -p 11111'
             }
         }
     }
