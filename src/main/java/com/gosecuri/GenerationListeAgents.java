@@ -13,12 +13,10 @@ public class GenerationListeAgents {
 
     public GenerationListeAgents(List<Agent> agentsList) throws IOException {
         this.agentsList = agentsList;
-        HTMLIndexGeneration(agentsList);
-        HTMLFicheAgentGeneration(agentsList);
     }
 
-    private void HTMLFicheAgentGeneration(List<Agent> agentsList) throws IOException {
-        for (Agent agent : agentsList) {
+    public void HTMLFicheAgentGeneration() throws IOException {
+        for (Agent agent : this.agentsList) {
             String url = "fiche" + agent.prenom + agent.nom + ".html";
             File file = new File("../web/" + url);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -65,7 +63,7 @@ public class GenerationListeAgents {
         }
     }
 
-    private void HTMLIndexGeneration(List<Agent> agentsList) throws IOException {
+    public void HTMLIndexGeneration() throws IOException {
         File file = new File("../web/index.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         bw.write("<!DOCTYPE html>\n" +
@@ -82,7 +80,7 @@ public class GenerationListeAgents {
                 "    <div class=\"container\">\n" +
                 "        <img src=\"img/logo.png\" alt=\"\">\n" +
                 "        <h1>Liste d'agents</h1>");
-        for (Agent agent : agentsList) {
+        for (Agent agent : this.agentsList) {
             String url = "fiche" + agent.prenom + agent.nom + ".html";
             bw.write("<a class=\"link\" href=\"" + url + "\">" + agent.prenom + " " + agent.nom + "</a><br/>");
         }

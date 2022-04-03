@@ -30,6 +30,7 @@ public class Main {
         }
 
         GenerationListeAgents generationListeAgents = new GenerationListeAgents(agentsList);
-
+        generationListeAgents.HTMLIndexGeneration();
+        generationListeAgents.HTMLFicheAgentGeneration();
     }
 }
