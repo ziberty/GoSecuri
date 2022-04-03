@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Send') {
             steps {
-                sh 'scp -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@8.tcp.ngrok.io:/var/www/gosecuri_web -p 11111'
+                sh 'scp -P 11111 -i ~/.ssh/id_rsa -r /var/jenkins_home/workspace/MSPR_APPLI/web gosecuri@8.tcp.ngrok.io:/var/www/gosecuri_web'
             }
         }
     }
