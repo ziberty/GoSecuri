@@ -31,15 +31,16 @@ public class GenerationListeAgentsTest {
     @Test
     public void HTMLIndexGenerationTest() throws IOException {
         this.generationListeAgents.HTMLIndexGeneration();
-        File fileIndex = new File("../web/index.html");
+        File fileIndex = new File("web/index.html");
+        StringBuilder fileContent = new StringBuilder();
         if (fileIndex.exists() && !fileIndex.isDirectory()) {
             Scanner scanner = new Scanner(fileIndex);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                assertThat(line, containsString("Foley"));
-                assertThat(line, containsString("Angelo"));
+                fileContent.append(line);
             }
         }
+        assertThat(fileContent.toString(), containsString("Angelo Foley"));
     }
 
 }
