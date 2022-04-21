@@ -31,7 +31,7 @@ public class GenerationListeAgentsTest {
     @Test
     public void HTMLIndexGenerationTest() throws IOException {
         this.generationListeAgents.HTMLIndexGeneration();
-        File fileIndex = new File("web/index.html");
+        File fileIndex = new File("../web/index.html");
         StringBuilder fileContent = new StringBuilder();
         if (fileIndex.exists() && !fileIndex.isDirectory()) {
             Scanner scanner = new Scanner(fileIndex);
