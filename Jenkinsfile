@@ -18,7 +18,7 @@ pipeline {
             steps {
                 dir("target") {
                     sh 'java -jar goSecuri-1.0.jar'
-                    sh 'mv web ../'
+                    //sh 'mv web ../'
                 }
             }
         }
