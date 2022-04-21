@@ -9,6 +9,13 @@ pipeline {
                git branch: 'main', url: 'https://github.com/ziberty/GoSecuri.git'
             }
         }
+        stage('init') {
+            steps {
+                dir("/var/jenkins_home/workspace") {
+                    sh 'rm -rf MSPR_APPLI'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
