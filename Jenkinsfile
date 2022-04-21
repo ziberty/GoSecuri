@@ -23,10 +23,11 @@ pipeline {
         }
         stage('Test') {
              steps {
-                sh 'mv src /target'
-                sh 'mv pom.xml /target'
-                sh 'cd target'
-                sh 'mvn test'
+                 dir("target") {
+                    sh 'mv ../src .'
+                    sh 'mv ../pom.xml .'
+                    sh 'mvn test'
+                 }
              }
              post {
                  always {
