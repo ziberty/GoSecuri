@@ -4,16 +4,16 @@ pipeline {
         maven 'maven'
     }
     stages {
-        stage('Recuperation des sources') {
-            steps {
-               git branch: 'main', url: 'https://github.com/ziberty/GoSecuri.git'
-            }
-        }
         stage('init') {
             steps {
                 dir("/var/jenkins_home/workspace") {
                     sh 'rm -rf MSPR_APPLI'
                 }
+            }
+        }
+        stage('Recuperation des sources') {
+            steps {
+               git branch: 'main', url: 'https://github.com/ziberty/GoSecuri.git'
             }
         }
         stage('Build') {
