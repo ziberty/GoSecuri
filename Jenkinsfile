@@ -34,15 +34,9 @@ pipeline {
                     sh 'mv ../src .'
                     sh 'mv ../pom.xml .'
                     sh 'mvn test'
+                    junit 'target/surefire-reports/*.xml'
                  }
              }
-             post {
-                 always {
-                     dir("target") {
-                        junit 'target/surefire-reports/*.xml'
-                     }
-                   }
-            }
         }
         stage('Send') {
             steps {
