@@ -34,7 +34,7 @@ pipeline {
                     sh 'mv ../src .'
                     sh 'mv ../pom.xml .'
                     sh 'mvn test'
-                    junit 'target/surefire-reports/TEST-GenerationListeAgentsTest.xml'
+                    junit 'target/surefire-reports/*.xml'
                  }
              }
         }
