@@ -14,6 +14,13 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Execute') {
+            steps {
+                dir("target") {
+                    sh 'java -jar goSecuri-1.0.jar'
+                }
+            }
+        }
         stage('Test') {
              steps {
                  sh 'mvn test'
@@ -22,13 +29,6 @@ pipeline {
                  always {
                      junit 'target/surefire-reports/*.xml'
                    }
-            }
-        }
-        stage('Execute') {
-            steps {
-                dir("target") {
-                    sh 'java -jar goSecuri-1.0.jar'
-                }
             }
         }
         stage('Send') {
