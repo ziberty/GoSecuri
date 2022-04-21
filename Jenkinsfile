@@ -18,14 +18,15 @@ pipeline {
             steps {
                 dir("target") {
                     sh 'java -jar goSecuri-1.0.jar'
-                    //sh 'mv web ../'
                 }
             }
         }
         stage('Test') {
              steps {
-                 sh 'ls -al'
-                 sh 'mvn test'
+                 dir("target") {
+                    sh 'ls -al'
+                    sh 'mvn test'
+                 }
              }
              post {
                  always {
