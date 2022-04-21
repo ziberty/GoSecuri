@@ -16,8 +16,10 @@ pipeline {
         }
         stage('Execute') {
             steps {
-                sh 'java -jar target/goSecuri-1.0.jar'
-                sh 'mv target/web .'
+                dir("target") {
+                    sh 'java -jar goSecuri-1.0.jar'
+                    sh 'mv /web ../'
+                }
             }
         }
         stage('Test') {
